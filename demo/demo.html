@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Homeworks</title>
+    <link rel="stylesheet" type="text/css" href="/spy/sim.css" />
+    <link rel="stylesheet" href="/lib/codemirror/codemirror.css" />
+    <link rel="stylesheet" href="/lib/codemirror/theme/paraiso-light.css" />
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-cookies.js"></script>
+    <script type="text/javascript" src="/lib/codemirror/codemirror.js"></script>
+    <script type="text/javascript" src="/spy/expr_ng.js"></script>
+    <script type="text/javascript" src="/spy/sim.js"></script>
+    <script type="text/javascript" src="demo.js"></script>
+  </head>
+  <body ng-app="app">
+    Hello
+    <div ng-controller="BlahController">
+      <a href="#" ng-click="pycontrol.set_program('hello')">blah</a>
+      <a href="#" ng-click="show()">log</a>
+      {{thingy}}
+      <sim-py program="thingy" control="pycontrol" size="" lightboard="yes" reset="yes" simid="1"></sim-py>
+    </div>
+  </body>
+</html>
+
