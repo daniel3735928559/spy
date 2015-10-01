@@ -1,10 +1,7 @@
 var app = app || angular.module('app', []);
 
-app.controller("BlahController", ['$scope','$timeout',function($scope, $timeout){
-    $scope.thingy = "asldaksd";
+app.controller("DemoController", ['$scope',function($scope){
+    $scope.prog = "x = 27";
     $scope.pycontrol = {};
-    $scope.show = function(){
-	console.log($scope.pycontrol.get_program());
-    }
 }]);
 

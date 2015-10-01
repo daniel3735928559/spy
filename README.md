@@ -6,47 +6,70 @@ subset of Python and includes multiple modules
 ## Demo
 
 A live demo can be found at 
-[http://daniel3735928559.github.io/spy/](http://daniel3735928559.github.io/spy/)
+[http://daniel3735928559.github.io/spy/demo/demo.html](http://daniel3735928559.github.io/spy/demo/demo.html)
 
 ## Code Example
 
-A stripped-down version of the demo page would look like:
+Suppose we are in an angular app with the following controller:
 
 ```
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/sim/py/sim.css" />
-    <link rel="stylesheet" href="/sim/cm/codemirror.css" />
-    <link rel="stylesheet" href="/sim/cm/theme/paraiso-light.css" />
-    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
-    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-cookies.js"></script>
-    <script type="text/javascript" src="/sim/cm/codemirror.js"></script>
-    <script type="text/javascript" src="/sim/py/expr_ng.js"></script>
-    <script type="text/javascript" src="/sim/py/sim.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-  </head>
-  <body ng-app="app">
-    Hello
-    <div ng-controller="BlahController">
-      <a href="#" ng-click="pycontrol.set_program('hello')">blah</a>
-      <a href="#" ng-click="show()">log</a>
-      {{thingy}}
-      <sim-py program="thingy" control="pycontrol" size="" lightboard="yes" reset="yes" simid="1"></sim-py>
-    </div>
-  </body>
-</html>
+app.controller("DemoController", ['$scope',function($scope){
+    $scope.prog = "x = 27";
+    $scope.pycontrol = {};
+}]);
 ```
 
-## Installation and use
+Then we can embed an instance of the simulator with a line such as: 
 
-* Download the `lib` and `spy` folders.
+```
+<sim-py program="prog" control="pycontrol" size="" lightboard="yes" reset="yes" simid="1" template="/spy/simpy.html"></sim-py>
+```
+
+## Python support
+
+Spy supports a small subset of Python, limited to:
+
+* Variables with numeric, string, and array values
+* Arithmetic expressions
+* `if` and `if/else` blocks
+* `while` loops
+* Functions
+* Certain modules (see below)
+
+## Built-in modules
+
+Spy provides several modules that can be imported:
+
+* `math`: Some simple mathematics functions
+
+* `string`: Some basic string functions
+
+* `input`: Functions for prompting the user for input (numeric or string)
+
+* `file`: Functions for accessing, modifying, and creating files in a filesystem
+
+* `lb`: Functions for interacting with a simple screen-like "lightboard"
+
+* `googlemaps`: Provides access to the Google Maps directions API
 
 ## Frontend Usage
 
-The use of the editor frontend itself is documented in index.html (or 
-see the demo).
+Write your program in the text area.  Press "run" or Ctrl-Enter to run
+the program.  Press "step" or Enter to step through the program one
+line at a time.  The state of all variables currently in scope, as
+well as all functions that have been defined, outstanding function
+calls, and outputs will be displayed and updated as you do so.
 
 ## API Reference
+
+When you create an instance of the simulator, you must pass it an
+object in its "control" parameter.  This object will be populated with
+functions for interacting programmatically with the simulator.
+Specifically:
+
+* `get_program()`: Returns the current program.
+
+* `set_program(prog)`: Sets the current program to `prog`.  
 
 ## License
 
