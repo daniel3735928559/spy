@@ -1328,7 +1328,9 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 		quest_feature: '@quest',
 		simid: '@simid'
 	    },
-	    templateUrl: '/spy/simpy.html',
+	    templateUrl: function(element,attrs){
+		return attrs.template;
+	    },
 	    controller: 'PySimController',
 	    link: function(scope,element,attrs){
 		if(scope.control){
