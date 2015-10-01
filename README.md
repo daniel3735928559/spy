@@ -6,7 +6,7 @@ subset of Python and includes multiple modules
 ## Demo
 
 A live demo can be found at 
-[http://daniel3735928559.github.io/spy/demo/demo.html](http://daniel3735928559.github.io/spy/demo/demo.html)
+[http://daniel3735928559.github.io/spy/demo.html](http://daniel3735928559.github.io/spy/demo.html)
 
 ## Code Example
 
