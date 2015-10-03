@@ -495,11 +495,14 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 	});
 	$scope.editor.setOption("theme", "default");
 	$scope.editor.setValue($scope.program);
-	if($scope.simid == "big"){
-	    $scope.editor.setSize(null, "70%");
+	if($scope.size){
+	    $scope.editor.setSize(null, $scope.size);
+	}
+	else if($scope.size == "auto"){
+	    $scope.editor.setSize(null, ($scope.program.split("\n").length + 2)*($scope.editor.defaultTextHeight()) + 10);
 	}
 	else{
-	    $scope.editor.setSize(null, ($scope.program.split("\n").length + 2)*($scope.editor.defaultTextHeight()) + 10);
+	    $scope.editor.setSize(null, "70%");
 	}
 	$scope.editor.setOption("extraKeys", {
 	    'Tab': function(cm) {
@@ -516,6 +519,10 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
             'Ctrl-Enter': function(cm) {
                 if(!($scope.running)) $scope.run();
 		else $scope.step();
+                $scope.$apply();
+            },
+            'Esc': function(cm) {
+                if($scope.running) $scope.reset();
                 $scope.$apply();
             }
 	});
@@ -1329,8 +1336,8 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 		control: '=',
 		size: '@size',
 		lightboard_feature: '@lightboard',
+		show_functions_feature: '@functions',
 		reset_feature: '@reset',
-		quest_feature: '@quest',
 		simid: '@simid'
 	    },
 	    templateUrl: function(element,attrs){

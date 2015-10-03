@@ -62,14 +62,37 @@ calls, and outputs will be displayed and updated as you do so.
 
 ## API Reference
 
-When you create an instance of the simulator, you must pass it an
-object in its "control" parameter.  This object will be populated with
-functions for interacting programmatically with the simulator.
-Specifically:
+An instance of the simulator is created with the `<sim-py>` tag.  This
+tag accepts several attributes:
 
-* `get_program()`: Returns the current program.
+* `simid`: (Required) An ID for the simulator.  Must be unique among all
+  instances of spy on the page.
+  
+* `program`: (Optional) This a javscript object to which the program in the
+  simulator's text area will be bound.  
 
-* `set_program(prog)`: Sets the current program to `prog`.  
+* `text`: (Optional) This is a string that will be set as the default program
+  (for when the "reset" button is pressed).  This will override
+  `program` for providing a default program for the instance if it is
+  present.
+
+* `control`: (Optional) A Javascript object that, if provided, will be populated
+  with methods for controlling this instance of the simulator.
+  Specifically: 
+
+** `get_program()`: Returns the current program.
+
+** `set_program(prog)`: Sets the current program to `prog`.  
+
+* `size`: (Optional) A CSS string describing the height of the text area of the
+  simulator, or `"auto"` if you want it to be set to a sensible height
+  for the default program.  Default value is `"70%"`
+
+* `reset`: (Optional) Will hide the "reset" button if set to `"no"`,
+
+* `functions`: (Optional) Will hide the function list and function call stack if set to `"no"`.
+
+* `lightboard`: (Optional) Will disable lightboard functionality if set to `"no"`.  
 
 ## License
 
