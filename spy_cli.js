@@ -2,7 +2,6 @@
 var benv = require('benv');
 benv.setup(function(){
     benv.expose({angular:benv.require('./lib/angular/angular.js','angular')});
-    console.log(document);
     var app = angular.module('app', [])
     app.controller("ClController", ['$scope',function($scope){
 	$scope.prog = "x = 27";

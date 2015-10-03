@@ -92,7 +92,9 @@ tag accepts several attributes:
 
 * `functions`: (Optional) Will hide the function list and function call stack if set to `"no"`.
 
-* `lightboard`: (Optional) Will disable lightboard functionality if set to `"no"`.  
+* `lightboard`: (Optional) Will disable lightboard functionality if set to `"no"`.
+
+* `debug`: (Optional) Will enable console debug output if set to `"yes"`.  
 
 ## License
 
