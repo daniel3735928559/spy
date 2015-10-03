@@ -1,4 +1,5 @@
 var app = app || angular.module('app', []);
+var parser = parser || module.parent.parser;
 
 function make_a_clone(obj) {
     if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj)
@@ -1351,6 +1352,12 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 		    }
 		    scope.control.get_program = function(){
 			return scope.program;
+		    }
+		    scope.control.get_variables = function(){
+			return scope.variables;
+		    }
+		    scope.control.get_functions = function(){
+			return scope.functions;
 		    }
 		    scope.$emit("spy_linked");
 		}
