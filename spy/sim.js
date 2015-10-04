@@ -1354,7 +1354,7 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 	    },
 	    controller: 'PySimController',
 	    link: function(scope,element,attrs){
-		scope.debug_log = scope.debug_mode_feature == 'yes' ? console.log.bind(console) : $scope.do_nothing;
+		scope.debug_log = scope.debug_mode_feature == 'yes' ? console.log.bind(console) : scope.do_nothing;
 		if(scope.control){
 		    scope.control.set_program = function(new_prog){
 			scope.change_program(new_prog);
