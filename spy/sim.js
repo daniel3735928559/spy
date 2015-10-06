@@ -250,6 +250,13 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 		}
 	    },
 	    {
+		"name":"floor",
+		"arg_names":["x"],
+		"run":function(args){
+		    return Math.floor(args[0]);
+		}
+	    },
+	    {
 		"name":"distance",
 		"arg_names":["x1","y1","x2","y2"],
 		"run":function(args){
