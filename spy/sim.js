@@ -506,10 +506,13 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 	$scope.editor.setOption("theme", "default");
 	$scope.editor.setValue($scope.program);
 	if($scope.size){
-	    $scope.editor.setSize(null, $scope.size);
-	}
-	else if($scope.size == "auto"){
-	    $scope.editor.setSize(null, ($scope.program.split("\n").length + 2)*($scope.editor.defaultTextHeight()) + 10);
+	    if($scope.size == "auto"){
+		console.log("hello");
+		$scope.editor.setSize(null, ($scope.program.split("\n").length + 2)*($scope.editor.defaultTextHeight()) + 10);
+	    }
+	    else{
+		$scope.editor.setSize(null, $scope.size);
+	    }
 	}
 	else{
 	    $scope.editor.setSize(null, "70%");
