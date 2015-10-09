@@ -77,12 +77,23 @@ tag accepts several attributes:
   present.
 
 * `control`: (Optional) A Javascript object that, if provided, will be populated
-  with methods for controlling this instance of the simulator.
+  with methods for controlling this instance of the simulator.  
   Specifically: 
 
-** `get_program()`: Returns the current program.
+ * `get_program()`: Returns the current program.
 
-** `set_program(prog)`: Sets the current program to `prog`.  
+ * `set_program(prog)`: Sets the current program to `prog`.
+ 
+ * `get_variables()`: Gets a dictionary of the current state of all variables.
+ 
+ * `get_functions()`: Gets a dictionary of all functions.
+ 
+ * `get_output()`: Gets a list of all things that have been outputted thus far.
+
+ Additionally, `control` is assumed to have a function `linked()`
+ which will be called once spy has been linked and all these functions
+ have been populated.  Currently, a `"spy_linked"` event is also
+ omitted at this point, but this will be removed in the near future.
 
 * `size`: (Optional) A CSS string describing the height of the text area of the
   simulator, or `"auto"` if you want it to be set to a sensible height
