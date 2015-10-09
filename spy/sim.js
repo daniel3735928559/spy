@@ -1381,7 +1381,7 @@ app.controller("PySimController", ['$scope','$timeout',function($scope, $timeout
 		    scope.control.get_functions = function(){
 			return scope.functions;
 		    }
-		    scope.control.linked();
+		    if(scope.control.linked) scope.control.linked();
 		    scope.$emit("spy_linked");
 		}
 	    }
